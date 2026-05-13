@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://81yxru246pmc"]
+
+[ext_resource type="PackedScene" uid="uid://cn5ksvlc6nbo3" path="res://Scens/Map/map.tscn" id="1_2mdcp"]
+[ext_resource type="PackedScene" uid="uid://dta5n113ttwl7" path="res://Characters/Player/Char/player.tscn" id="2_2mdcp"]
+[ext_resource type="PackedScene" uid="uid://b8djeidgbsloq" path="res://Scens/Map/chunck.tscn" id="2_afyi1"]
+[ext_resource type="PackedScene" uid="uid://w2dqumrik3yl" path="res://Characters/Enemy/Trainer/Tainer.tscn" id="4_s27x0"]
+[ext_resource type="PackedScene" uid="uid://cvf85ntdovdxq" path="res://Scens/EnemySpawner/enemy_spawner.tscn" id="5_7axkf"]
+[ext_resource type="PackedScene" uid="uid://ct62be28ok37e" path="res://Characters/XPOrbs/xp_orb.tscn" id="6_36cx8"]
+
+[node name="Main" type="Node2D" unique_id=49964647]
+
+[node name="Map" parent="." unique_id=393192129 node_paths=PackedStringArray("player") instance=ExtResource("1_2mdcp")]
+chunk_scene = ExtResource("2_afyi1")
+chunk_size = 1024.0
+player = NodePath("../Player")
+
+[node name="Tainer" parent="." unique_id=840604647 instance=ExtResource("4_s27x0")]
+position = Vector2(-186, 65)
+
+[node name="EnemySpawner" parent="." unique_id=1983653676 node_paths=PackedStringArray("player") instance=ExtResource("5_7axkf")]
+player = NodePath("../Player")
+spawn_time = 3
+
+[node name="Player" parent="." unique_id=1157132462 instance=ExtResource("2_2mdcp")]
+
+[node name="XPOrb" parent="." unique_id=703522426 instance=ExtResource("6_36cx8")]
+position = Vector2(-98, 138)
+xp = 2
+
+[node name="XPOrb2" parent="." unique_id=391014921 instance=ExtResource("6_36cx8")]
+position = Vector2(-68, 138)
+xp = 5
+
+[node name="XPOrb3" parent="." unique_id=1358906083 instance=ExtResource("6_36cx8")]
+position = Vector2(-36.999996, 138)
+xp = 10

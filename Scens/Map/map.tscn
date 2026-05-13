@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cn5ksvlc6nbo3"]
+
+[ext_resource type="Script" uid="uid://iqh1gr7l74t" path="res://Scens/Map/map.gd" id="1_7ow54"]
+
+[node name="WorldManager" type="Node2D" unique_id=393192129]
+script = ExtResource("1_7ow54")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=333639305]
+rect = Rect2(0, 0, 200, 200)
+
+[node name="ChunkContainer" type="Node2D" parent="." unique_id=961566266]

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ct62be28ok37e"]
+
+[ext_resource type="Script" uid="uid://bkpmnkdx2dlqk" path="res://Characters/XPOrbs/xp_orbs_base.gd" id="1_p4yjw"]
+[ext_resource type="Texture2D" uid="uid://bpfpwwfby6iwq" path="res://Resourcers/Textures/xp_orb.png" id="2_2xuv7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hieac"]
+
+[node name="XPOrb" type="CharacterBody2D" unique_id=703522426]
+scale = Vector2(0.99050045, 1.0626659)
+collision_layer = 2
+script = ExtResource("1_p4yjw")
+color_variations = Dictionary[int, Color]({
+2: Color(0.12000347, 0.516994, 0.64334846, 1),
+5: Color(0.45609182, 0.43228176, 0.85037464, 1),
+10: Color(0.8470046, 0.35384455, 0.37230438, 1)
+})
+metadata/_custom_type_script = "uid://bkpmnkdx2dlqk"
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=681912809]
+scale = Vector2(0.05605684, 0.05605684)
+texture = ExtResource("2_2xuv7")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=65008300]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.056401122, 0.056401122)
+texture = ExtResource("2_2xuv7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1388230098]
+scale = Vector2(0.050000004, 0.050000004)
+texture = ExtResource("2_2xuv7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=99338582]
+scale = Vector2(0.8403496, 0.83779806)
+shape = SubResource("CircleShape2D_hieac")

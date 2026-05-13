@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://w2dqumrik3yl"]
+
+[ext_resource type="Script" uid="uid://b0dvc0sl8t1cm" path="res://Characters/Enemy/EnemyBase.gd" id="1_0hkei"]
+[ext_resource type="Texture2D" uid="uid://ce5xxei3s7wug" path="res://Resourcers/Textures/TrainingDummy/NoArmor/Hited/Hited(NoArmor)1.png" id="2_cvts7"]
+[ext_resource type="Texture2D" uid="uid://di7lse6tc1c0t" path="res://Resourcers/Textures/TrainingDummy/NoArmor/Hited/Hited(NoArmor)2.png" id="3_q2yan"]
+[ext_resource type="Texture2D" uid="uid://nt287a00hq84" path="res://Resourcers/Textures/TrainingDummy/NoArmor/Hited/Hited(NoArmor)3.png" id="4_epk54"]
+[ext_resource type="Texture2D" uid="uid://vj5l16qtaqpg" path="res://Resourcers/Textures/TrainingDummy/NoArmor/Hited/Hited(NoArmor)4.png" id="5_beqdf"]
+[ext_resource type="Texture2D" uid="uid://bffcrnh0re2vf" path="res://Resourcers/Textures/TrainingDummy/NoArmor/Hited/Hited(NoArmor)5.png" id="6_tcgqw"]
+[ext_resource type="Texture2D" uid="uid://dvsmdiley5jx4" path="res://Resourcers/Textures/TrainingDummy/NoArmor/Idle/Idle(NoArmor).png" id="7_0k76m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hkei"]
+radius = 7.3316083
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ia4r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cvts7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q2yan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_epk54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_beqdf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tcgqw")
+}],
+"loop": false,
+"name": &"get_damage",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_0k76m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Tainer" type="CharacterBody2D" unique_id=840604647 node_paths=PackedStringArray("orientation_node", "attack_hitbox", "animator") groups=["enemy"]]
+script = ExtResource("1_0hkei")
+orientation_node = NodePath("Node2D")
+attack_hitbox = NodePath("Area2D")
+animator = NodePath("Node2D/AnimatedSprite2D")
+can_move = false
+metadata/_custom_type_script = "uid://b0dvc0sl8t1cm"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1597148748]
+position = Vector2(2.9999995, 15.999998)
+scale = Vector2(1.7731442, 1.7731442)
+shape = SubResource("CapsuleShape2D_0hkei")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=2111138128]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=2108581484]
+texture_filter = 1
+scale = Vector2(1.7731442, 1.7731442)
+sprite_frames = SubResource("SpriteFrames_3ia4r")
+animation = &"get_damage"
+frame = 4
+frame_progress = 1.0
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1007175496]
