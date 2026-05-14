@@ -19,5 +19,8 @@ func _on_show() -> void:
 
 func _on_sword_btn_pressed() -> void:
 	animator.play("hide")
-	wlist[0].emit_signal("upgrade_level")
+	for w in wlist:
+		if w is Sword:
+			w.emit_signal("upgrade_level")
 	get_tree().paused = false
+	weapons.update_weapon_list()

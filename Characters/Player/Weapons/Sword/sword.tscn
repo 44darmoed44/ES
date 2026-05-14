@@ -36,16 +36,12 @@ animations = [{
 size = Vector2(54, 54)
 
 [node name="Sword" type="Node2D" unique_id=1241589099 node_paths=PackedStringArray("animator", "timer", "attack_zone")]
-scale = Vector2(1, -1)
 script = ExtResource("1_feq8u")
 center_distance = 150.0
 animator = NodePath("AnimatedSprite2D")
 timer = NodePath("Timer")
 need_attack_zone = true
 attack_zone = NodePath("AnimatedSprite2D/Area2D")
-upgrades_sprite = Dictionary[int, SpriteFrames]({
-1: SubResource("SpriteFrames_bq2ig")
-})
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1745814693]
 position = Vector2(150, -23)

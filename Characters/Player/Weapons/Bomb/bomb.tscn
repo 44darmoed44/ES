@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://e57e1r3myia2"]
+
+[ext_resource type="Script" uid="uid://ce2ojy2k7cn68" path="res://Characters/Player/Weapons/Bomb/bomb.gd" id="1_0r4ut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0r4ut"]
+
+[node name="Bomb" type="Node2D" unique_id=1703843528 node_paths=PackedStringArray("timer", "attack_zone")]
+script = ExtResource("1_0r4ut")
+need_animator = false
+timer = NodePath("Timer")
+need_attack_zone = true
+attack_zone = NodePath("AttackZone")
+
+[node name="Timer" type="Timer" parent="." unique_id=1550690153]
+
+[node name="AttackZone" type="Area2D" parent="." unique_id=774161070]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone" unique_id=1941478633]
+scale = Vector2(28.049162, 28.049162)
+shape = SubResource("RectangleShape2D_0r4ut")

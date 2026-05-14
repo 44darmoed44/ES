@@ -10,6 +10,7 @@ var upd_dist_btn = update_center_distance
 func update_center_distance():
 	animator.position.x = center_distance
 
+@export var need_animator: bool = true
 @export var animator: AnimatedSprite2D
 @export var timer: Timer 
 @export var need_attack_zone: bool
@@ -17,14 +18,13 @@ func update_center_distance():
 @export var attack_time: float
 @export var level: int
 @export var hit_damage: int
-@export var upgrades_sprite: Dictionary[int, SpriteFrames]
 
 var entered_enemies: Array
 
 
 func _ready() -> void:
-	animator.sprite_frames = upgrades_sprite[1]
-	animator.connect("animation_finished", _on_animation_finished)
+	if need_animator:
+		animator.connect("animation_finished", _on_animation_finished)
 	if need_attack_zone:
 		attack_zone.set_collision_mask_value(2, true)
 		attack_zone.connect("body_entered", _on_body_entered)

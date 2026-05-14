@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ck30c8ig7104g" path="res://Resourcers/Textures/PlayerTextures/Idle/stand_back-Sheet.png" id="3_1r5s5"]
 [ext_resource type="Texture2D" uid="uid://jmisyky32pon" path="res://Resourcers/Textures/PlayerTextures/Walk/walk-Sheet.png" id="3_5jcxf"]
 [ext_resource type="Texture2D" uid="uid://1u3mi3lqm4f2" path="res://Resourcers/Textures/PlayerTextures/Walk/walkback-Sheet.png" id="4_30dtt"]
+[ext_resource type="PackedScene" uid="uid://e57e1r3myia2" path="res://Characters/Player/Weapons/Bomb/bomb.tscn" id="4_274cn"]
 [ext_resource type="PackedScene" uid="uid://bujuhwex4cyex" path="res://Characters/Player/Weapons/Sword/sword.tscn" id="4_gfyj3"]
 [ext_resource type="Texture2D" uid="uid://31ve8db7t0u" path="res://Resourcers/Textures/PlayerTextures/Idle/stand_back_side-Sheet.png" id="4_wfewr"]
 [ext_resource type="Texture2D" uid="uid://dlvtwt3vkfeuq" path="res://Resourcers/Textures/PlayerTextures/Walk/walkBackSide-Sheet.png" id="5_6rvh7"]
@@ -369,7 +370,8 @@ script = ExtResource("1_65n15")
 script = ExtResource("2_1r5s5")
 
 [node name="Sword" parent="Weapons" unique_id=1241589099 instance=ExtResource("4_gfyj3")]
-scale = Vector2(1, -1)
+
+[node name="Bomb" parent="Weapons" unique_id=1703843528 instance=ExtResource("4_274cn")]
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=571215886]
 shape = SubResource("CapsuleShape2D_ywxx0")
