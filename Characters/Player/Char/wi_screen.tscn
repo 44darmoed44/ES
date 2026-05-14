@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://cvultu3eq5b57"]
+
+[ext_resource type="Script" uid="uid://dj07l7235uv0w" path="res://Characters/Player/Char/wi_screen.gd" id="1_4vaky"]
+
+[sub_resource type="Animation" id="Animation_4vaky"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -647)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wykag"]
+resource_name = "default"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-511, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n3obh"]
+resource_name = "hide"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-864, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(9.18958, 0.21022414),
+"update": 0,
+"values": [Vector2(1152, 648), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_21ow6"]
+resource_name = "show"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0009999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-497, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(0.21022414, 9.18958),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1152, 648)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktiog"]
+_data = {
+&"RESET": SubResource("Animation_4vaky"),
+&"default": SubResource("Animation_wykag"),
+&"hide": SubResource("Animation_n3obh"),
+&"show": SubResource("Animation_21ow6")
+}
+
+[node name="WIScreen" type="Panel" unique_id=1050163551]
+process_mode = 3
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -647.0
+offset_right = -1152.0
+offset_bottom = -1295.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4vaky")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=350212590]
+process_mode = 3
+libraries/ = SubResource("AnimationLibrary_ktiog")
+autoplay = &"default"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=1281560736]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=792009207]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer" unique_id=808764550]
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=78813276]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SwordBTN" type="Button" parent="VBoxContainer/MarginContainer2" unique_id=497902743]
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 2
+text = "меч"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=712989397]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer3" unique_id=981703031]
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer2/SwordBTN" to="." method="_on_sword_btn_pressed"]

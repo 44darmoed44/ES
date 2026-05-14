@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerProperties="*uid://cj2nrqgsbslc"
+WeaponsProperties="*uid://ce0x4nigatmr2"
 
 [global_group]
 
@@ -53,4 +54,5 @@ down={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

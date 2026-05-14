@@ -44,6 +44,7 @@ func movement_controller(delta: float) -> void:
 
 
 func _on_get_damage(damage: float) -> void:
+	print(123)
 	velocity = Vector2.ZERO
 	is_damage = true
 	animator.play("get_damage")

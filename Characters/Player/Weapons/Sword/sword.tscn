@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bujuhwex4cyex"]
+
+[ext_resource type="Script" uid="uid://cj0bbkwmtvvc0" path="res://Characters/Player/Weapons/Sword/sword.gd" id="1_feq8u"]
+[ext_resource type="Texture2D" uid="uid://ba3kjilmyylca" path="res://Resourcers/Textures/W&I/Weapons/sword+Sheet.png" id="2_kargy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feq8u"]
+atlas = ExtResource("2_kargy")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50y1i"]
+atlas = ExtResource("2_kargy")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho58h"]
+atlas = ExtResource("2_kargy")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bq2ig"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feq8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50y1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho58h")
+}],
+"loop": false,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg3n0"]
+size = Vector2(54, 54)
+
+[node name="Sword" type="Node2D" unique_id=1241589099 node_paths=PackedStringArray("animator", "timer", "attack_zone")]
+scale = Vector2(1, -1)
+script = ExtResource("1_feq8u")
+center_distance = 150.0
+animator = NodePath("AnimatedSprite2D")
+timer = NodePath("Timer")
+need_attack_zone = true
+attack_zone = NodePath("AnimatedSprite2D/Area2D")
+upgrades_sprite = Dictionary[int, SpriteFrames]({
+1: SubResource("SpriteFrames_bq2ig")
+})
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1745814693]
+position = Vector2(150, -23)
+sprite_frames = SubResource("SpriteFrames_bq2ig")
+frame = 2
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=15819984]
+position = Vector2(2, 9)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=20365376]
+position = Vector2(-1.6681846, 5.1384125)
+shape = SubResource("RectangleShape2D_lg3n0")
+
+[node name="Timer" type="Timer" parent="." unique_id=273880988]
+wait_time = 1.25
+one_shot = true

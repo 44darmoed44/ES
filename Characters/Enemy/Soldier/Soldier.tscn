@@ -9,10 +9,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm3mi"]
 size = Vector2(32, 54)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tees1"]
-radius = 18.0
-height = 48.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_dc4c3"]
 atlas = ExtResource("2_7yulc")
 region = Rect2(200, 0, 100, 100)
@@ -190,11 +186,15 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tees1"]
+radius = 18.0
+height = 48.0
+
 [node name="Soldier" type="CharacterBody2D" unique_id=2062687618 node_paths=PackedStringArray("orientation_node", "attack_hitbox", "animator") groups=["enemy"]]
 script = ExtResource("1_71tn6")
 orientation_node = NodePath("Orientation")
 attack_hitbox = NodePath("Orientation/AttackHitBox")
-animator = NodePath("AnimatedSprite2D")
+animator = NodePath("Orientation/AnimatedSprite2D")
 hp = 5
 metadata/_custom_type_script = "uid://b0dvc0sl8t1cm"
 
@@ -206,13 +206,13 @@ metadata/_custom_type_script = "uid://b0dvc0sl8t1cm"
 position = Vector2(35, 0)
 shape = SubResource("RectangleShape2D_bm3mi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1815106983]
-shape = SubResource("CapsuleShape2D_tees1")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1559113698]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Orientation" unique_id=1559113698]
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_8uu8r")
 animation = &"attack"
 frame = 3
 frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1815106983]
+shape = SubResource("CapsuleShape2D_tees1")

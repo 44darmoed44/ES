@@ -7,6 +7,7 @@ signal get_damage(damage: float)
 @onready var hp_bar := $HPBar
 @onready var xp_bar = $CanvasLayer/XPBar
 @onready var lvl_text := $CanvasLayer/Label
+@onready var wi_screen := $CanvasLayer/WIScreen
 
 enum Direction {
 	WALK,
@@ -24,7 +25,6 @@ var is_damage = false
 var prop := PlayerProperties
 
 func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_ALWAYS
 	hp = prop.max_hp 
 	hp_bar.max_value = hp
 	xp_bar.max_value = prop.xp_next_lvl
@@ -116,6 +116,8 @@ func _check_level(xp: int) -> void:
 		prop.player_lvl += 1
 		prop.xp_next_lvl += 2 * prop.next_lvl_xp_mult
 		xp_bar.max_value = prop.xp_next_lvl
+		wi_screen.emit_signal("show")
+
 
 
 func _on_button_pressed() -> void:

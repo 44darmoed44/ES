@@ -34,3 +34,55 @@ xp = 5
 [node name="XPOrb3" parent="." unique_id=1358906083 instance=ExtResource("6_36cx8")]
 position = Vector2(-36.999996, 138)
 xp = 10
+
+[node name="XPOrb4" parent="." unique_id=626955468 instance=ExtResource("6_36cx8")]
+position = Vector2(-5.999996, 165)
+xp = 10
+
+[node name="XPOrb5" parent="." unique_id=1093898437 instance=ExtResource("6_36cx8")]
+position = Vector2(-37, 186)
+xp = 10
+
+[node name="XPOrb6" parent="." unique_id=1047016175 instance=ExtResource("6_36cx8")]
+position = Vector2(-85.00001, 201)
+xp = 10
+
+[node name="XPOrb7" parent="." unique_id=1696402478 instance=ExtResource("6_36cx8")]
+position = Vector2(-36.999992, 231.00002)
+xp = 10
+
+[node name="XPOrb8" parent="." unique_id=1415926863 instance=ExtResource("6_36cx8")]
+position = Vector2(24.000008, 231.00002)
+xp = 10
+
+[node name="XPOrb9" parent="." unique_id=509047269 instance=ExtResource("6_36cx8")]
+position = Vector2(86.00001, 217.00002)
+xp = 10
+
+[node name="XPOrb10" parent="." unique_id=2115530983 instance=ExtResource("6_36cx8")]
+position = Vector2(86, 165.00002)
+xp = 10
+
+[node name="XPOrb11" parent="." unique_id=1707963524 instance=ExtResource("6_36cx8")]
+position = Vector2(125, 152.00002)
+xp = 10
+
+[node name="XPOrb12" parent="." unique_id=714394480 instance=ExtResource("6_36cx8")]
+position = Vector2(100, 108)
+xp = 10
+
+[node name="XPOrb13" parent="." unique_id=330523148 instance=ExtResource("6_36cx8")]
+position = Vector2(176, 108.00001)
+xp = 10
+
+[node name="XPOrb14" parent="." unique_id=515313561 instance=ExtResource("6_36cx8")]
+position = Vector2(163, 179)
+xp = 10
+
+[node name="XPOrb15" parent="." unique_id=362173340 instance=ExtResource("6_36cx8")]
+position = Vector2(150, 245.00002)
+xp = 10
+
+[node name="XPOrb16" parent="." unique_id=1804881264 instance=ExtResource("6_36cx8")]
+position = Vector2(214, 217.00002)
+xp = 10

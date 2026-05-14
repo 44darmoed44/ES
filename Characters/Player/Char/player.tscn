@@ -1,19 +1,21 @@
 [gd_scene format=3 uid="uid://dta5n113ttwl7"]
 
 [ext_resource type="Script" uid="uid://dkw01uw4tw3gx" path="res://Characters/Player/Char/player.gd" id="1_65n15"]
+[ext_resource type="Script" uid="uid://crwny0ab3hi0n" path="res://Characters/Player/Char/weapons.gd" id="2_1r5s5"]
 [ext_resource type="Texture2D" uid="uid://c5uo4w05oygli" path="res://Resourcers/Textures/PlayerTextures/Idle/stand-Sheet.png" id="2_gfyj3"]
 [ext_resource type="Texture2D" uid="uid://ck30c8ig7104g" path="res://Resourcers/Textures/PlayerTextures/Idle/stand_back-Sheet.png" id="3_1r5s5"]
 [ext_resource type="Texture2D" uid="uid://jmisyky32pon" path="res://Resourcers/Textures/PlayerTextures/Walk/walk-Sheet.png" id="3_5jcxf"]
 [ext_resource type="Texture2D" uid="uid://1u3mi3lqm4f2" path="res://Resourcers/Textures/PlayerTextures/Walk/walkback-Sheet.png" id="4_30dtt"]
+[ext_resource type="PackedScene" uid="uid://bujuhwex4cyex" path="res://Characters/Player/Weapons/Sword/sword.tscn" id="4_gfyj3"]
 [ext_resource type="Texture2D" uid="uid://31ve8db7t0u" path="res://Resourcers/Textures/PlayerTextures/Idle/stand_back_side-Sheet.png" id="4_wfewr"]
 [ext_resource type="Texture2D" uid="uid://dlvtwt3vkfeuq" path="res://Resourcers/Textures/PlayerTextures/Walk/walkBackSide-Sheet.png" id="5_6rvh7"]
-[ext_resource type="PackedScene" uid="uid://c4488q3517j5u" path="res://Characters/Player/Weapons/WeaponBase.tscn" id="5_71w3e"]
 [ext_resource type="Texture2D" uid="uid://dhwfijj2bwpme" path="res://Resourcers/Textures/PlayerTextures/Idle/stand_front-Sheet.png" id="5_274cn"]
 [ext_resource type="Texture2D" uid="uid://uxg2us3nhbrt" path="res://Resourcers/Textures/PlayerTextures/Idle/stand_Side-Sheet.png" id="6_3sqgj"]
 [ext_resource type="Texture2D" uid="uid://fniepyaboava" path="res://Resourcers/Textures/UI/Bars/frame.png" id="6_o54o4"]
 [ext_resource type="Texture2D" uid="uid://bn8uitljiunbw" path="res://Resourcers/Textures/PlayerTextures/Walk/walkFront-Sheet.png" id="6_x45wj"]
 [ext_resource type="Texture2D" uid="uid://dnqnpa87qcqf3" path="res://Resourcers/Textures/UI/Bars/hp.png" id="7_5jcxf"]
 [ext_resource type="Texture2D" uid="uid://co5saw8b5xg88" path="res://Resourcers/Textures/PlayerTextures/Walk/walkSide-Sheet.png" id="7_f6qdv"]
+[ext_resource type="PackedScene" uid="uid://cvultu3eq5b57" path="res://Characters/Player/Char/wi_screen.tscn" id="7_wfewr"]
 [ext_resource type="Texture2D" uid="uid://dmfhokr3po0vq" path="res://Resourcers/Textures/UI/Bars/xp.png" id="8_5jcxf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ywxx0"]
@@ -363,14 +365,16 @@ motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_65n15")
 
+[node name="Weapons" type="Node2D" parent="." unique_id=1894028303]
+script = ExtResource("2_1r5s5")
+
+[node name="Sword" parent="Weapons" unique_id=1241589099 instance=ExtResource("4_gfyj3")]
+scale = Vector2(1, -1)
+
 [node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=571215886]
 shape = SubResource("CapsuleShape2D_ywxx0")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=726134799]
-
-[node name="WeaponBase" parent="." unique_id=229681898 instance=ExtResource("5_71w3e")]
-attack_time = 1.0
-hit_damage = 100
 
 [node name="HPBar" type="TextureProgressBar" parent="." unique_id=228443207]
 texture_filter = 1
@@ -423,6 +427,9 @@ offset_left = -54.0
 offset_bottom = 31.0
 grow_horizontal = 0
 text = "пауза"
+
+[node name="WIScreen" parent="CanvasLayer" unique_id=1050163551 node_paths=PackedStringArray("weapons") instance=ExtResource("7_wfewr")]
+weapons = NodePath("../../Weapons")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1428357760 groups=["player"]]
 texture_filter = 1
