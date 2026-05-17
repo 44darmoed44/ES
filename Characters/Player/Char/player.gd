@@ -40,6 +40,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _movement_controller():
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().quit()
 	var input_dir := Input.get_vector("left", "right", "up", "down").normalized()
 	var dir = input_dir * prop.speed
 	

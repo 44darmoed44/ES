@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bujuhwex4cyex"]
 
 [ext_resource type="Script" uid="uid://cj0bbkwmtvvc0" path="res://Characters/Player/Weapons/Sword/sword.gd" id="1_feq8u"]
-[ext_resource type="Texture2D" uid="uid://ba3kjilmyylca" path="res://Resourcers/Textures/W&I/Weapons/sword+Sheet.png" id="2_kargy"]
+[ext_resource type="Texture2D" uid="uid://ba3kjilmyylca" path="res://Resourcers/Textures/W&I/Weapons/Sword/sword+Sheet.png" id="2_kargy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_feq8u"]
 atlas = ExtResource("2_kargy")
@@ -36,6 +36,7 @@ animations = [{
 size = Vector2(54, 54)
 
 [node name="Sword" type="Node2D" unique_id=1241589099 node_paths=PackedStringArray("animator", "timer", "attack_zone")]
+scale = Vector2(1, -1)
 script = ExtResource("1_feq8u")
 center_distance = 150.0
 animator = NodePath("AnimatedSprite2D")

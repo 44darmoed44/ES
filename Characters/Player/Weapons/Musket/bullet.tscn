@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cnquym4aovumt"]
+
+[ext_resource type="Script" uid="uid://dmd7nnga4n3u8" path="res://Characters/Player/Weapons/Musket/bullet.gd" id="1_c5uy4"]
+[ext_resource type="Texture2D" uid="uid://8ogjlmd7bf50" path="res://Resourcers/Textures/W&I/Weapons/Musket/bullet.png" id="1_mrans"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2y3l5"]
+size = Vector2(12, 12)
+
+[node name="Bullet" type="Node2D" unique_id=158639814]
+script = ExtResource("1_c5uy4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=402878609]
+scale = Vector2(5, 5)
+texture = ExtResource("1_mrans")
+
+[node name="HitCollider" type="Area2D" parent="." unique_id=273579429]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitCollider" unique_id=591989469]
+shape = SubResource("RectangleShape2D_2y3l5")
+
+[node name="Timer" type="Timer" parent="." unique_id=1447160163]
+wait_time = 1.5
+autostart = true
+
+[connection signal="area_entered" from="HitCollider" to="." method="_on_hit_collider_area_entered"]
+[connection signal="body_entered" from="HitCollider" to="." method="_on_hit_collider_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -5,6 +5,44 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hieac"]
 
+[sub_resource type="Animation" id="Animation_2xuv7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hieac"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -3.7641177), Vector2(0, 4.7683716e-07)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p4x7s"]
+_data = {
+&"RESET": SubResource("Animation_2xuv7"),
+&"idle": SubResource("Animation_hieac")
+}
+
 [node name="XPOrb" type="CharacterBody2D" unique_id=703522426]
 scale = Vector2(0.99050045, 1.0626659)
 collision_layer = 2
@@ -16,19 +54,26 @@ color_variations = Dictionary[int, Color]({
 })
 metadata/_custom_type_script = "uid://bkpmnkdx2dlqk"
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=681912809]
-scale = Vector2(0.05605684, 0.05605684)
+[node name="Sprites" type="Node2D" parent="." unique_id=646144203]
+scale = Vector2(1.0000001, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites" unique_id=681912809]
+scale = Vector2(0.056056842, 0.056056842)
 texture = ExtResource("2_2xuv7")
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=65008300]
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites" unique_id=65008300]
 modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.056401122, 0.056401122)
+scale = Vector2(0.056401126, 0.056401126)
 texture = ExtResource("2_2xuv7")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1388230098]
-scale = Vector2(0.050000004, 0.050000004)
+[node name="Sprite2D" type="Sprite2D" parent="Sprites" unique_id=1388230098]
+scale = Vector2(0.05000001, 0.05000001)
 texture = ExtResource("2_2xuv7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=99338582]
 scale = Vector2(0.8403496, 0.83779806)
 shape = SubResource("CircleShape2D_hieac")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1960590381]
+libraries/ = SubResource("AnimationLibrary_p4x7s")
+autoplay = &"idle"

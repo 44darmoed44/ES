@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var player: Player
-@export var spawn_time: int
+@export var spawn_time: float
 
 @onready var enemy_inst = preload("res://Characters/Enemy/Soldier/Soldier.tscn")
 @onready var timer := $Timer
@@ -13,7 +13,7 @@ func _ready() -> void:
 func spawn_enemy_on_edge() -> Vector2:
 	var player_pos = player.global_position
 	var viewport_size = get_viewport().get_visible_rect().size
-	var camera = player.get_node("Camera2D")
+	# var camera = player.get_node("Camera2D")
 	
 	# Определяем границы видимости
 	var left = player_pos.x - viewport_size.x / 2

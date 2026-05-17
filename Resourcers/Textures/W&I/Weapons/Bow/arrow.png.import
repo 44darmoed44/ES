@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba3kjilmyylca"
-path="res://.godot/imported/sword+Sheet.png-dcd27c0681fd0d916c441c611286e369.ctex"
+uid="uid://d4m5bsqor4aes"
+path="res://.godot/imported/arrow.png-40fe622b9473085eb35dc7b40ff74844.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resourcers/Textures/W&I/Weapons/sword+Sheet.png"
-dest_files=["res://.godot/imported/sword+Sheet.png-dcd27c0681fd0d916c441c611286e369.ctex"]
+source_file="res://Resourcers/Textures/W&I/Weapons/Bow/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-40fe622b9473085eb35dc7b40ff74844.ctex"]
 
 [params]
 

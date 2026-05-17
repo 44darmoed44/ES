@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cbcsy8g1gbluq"]
+
+[ext_resource type="Texture2D" uid="uid://ycy5ic2t64iy" path="res://Resourcers/Textures/W&I/Weapons/Musket/mark.png" id="1_2e6tc"]
+[ext_resource type="Script" uid="uid://bxmt6dopliwu7" path="res://Characters/Player/Weapons/Musket/bullet_target.gd" id="1_p0qq5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5fgp"]
+size = Vector2(24, 24)
+
+[sub_resource type="Animation" id="Animation_p0qq5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qhumg"]
+resource_name = "idle"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i60ey"]
+_data = {
+&"RESET": SubResource("Animation_p0qq5"),
+&"idle": SubResource("Animation_qhumg")
+}
+
+[node name="BulletTarget" type="Area2D" unique_id=1702483962]
+collision_layer = 3
+script = ExtResource("1_p0qq5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=303994151]
+shape = SubResource("RectangleShape2D_m5fgp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1888330543]
+texture = ExtResource("1_2e6tc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=27170881]
+libraries/ = SubResource("AnimationLibrary_i60ey")
+autoplay = &"idle"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

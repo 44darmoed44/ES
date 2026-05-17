@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://u0owpw687l5q"]
+
+[ext_resource type="Script" uid="uid://bc0n2tcmkwcyi" path="res://Characters/Player/Weapons/Bow/bow.gd" id="1_8dkwl"]
+[ext_resource type="Texture2D" uid="uid://r16mvm85mfu8" path="res://Resourcers/Textures/W&I/Weapons/Bow/bow-Sheet.png" id="2_mdptu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdptu"]
+atlas = ExtResource("2_mdptu")
+region = Rect2(0, 0, 55, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig3g1"]
+atlas = ExtResource("2_mdptu")
+region = Rect2(55, 0, 55, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dau6e"]
+atlas = ExtResource("2_mdptu")
+region = Rect2(110, 0, 55, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pyfl"]
+atlas = ExtResource("2_mdptu")
+region = Rect2(165, 0, 55, 54)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mdptu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdptu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig3g1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dau6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pyfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdptu")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 7.0
+}]
+
+[node name="Bow" type="Node2D" unique_id=1191537896 node_paths=PackedStringArray("animator", "timer")]
+script = ExtResource("1_8dkwl")
+center_distance = 100.0
+animator = NodePath("AnimatedSprite2D")
+timer = NodePath("Timer")
+attack_time = 1.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=472307946]
+position = Vector2(100, 0)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_mdptu")
+animation = &"shoot"
+autoplay = "shoot"
+frame = 4
+frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="." unique_id=243259288]
+one_shot = true

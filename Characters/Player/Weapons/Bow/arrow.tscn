@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://6docldftvabx"]
+
+[ext_resource type="Texture2D" uid="uid://d4m5bsqor4aes" path="res://Resourcers/Textures/W&I/Weapons/Bow/arrow.png" id="1_dqg06"]
+[ext_resource type="Script" uid="uid://dmt2j4wos5iwl" path="res://Characters/Player/Weapons/Bow/arrow.gd" id="1_xdobn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdobn"]
+size = Vector2(38, 8)
+
+[node name="Arrow" type="Node2D" unique_id=1331849729]
+script = ExtResource("1_xdobn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=825091964]
+scale = Vector2(1.5, 2)
+texture = ExtResource("1_dqg06")
+
+[node name="Timer" type="Timer" parent="." unique_id=1649534783]
+autostart = true
+
+[node name="HitCollider" type="Area2D" parent="." unique_id=413276127]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitCollider" unique_id=1456011296]
+shape = SubResource("RectangleShape2D_xdobn")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="HitCollider" to="." method="_on_hit_collider_body_entered"]

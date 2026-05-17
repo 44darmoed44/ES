@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cxjqiyiw248dv"]
+
+[ext_resource type="Script" uid="uid://47ivx1ahikc8" path="res://Characters/Player/Weapons/Musket/musket.gd" id="1_dg0te"]
+[ext_resource type="Texture2D" uid="uid://r3ymw00qvn58" path="res://Resourcers/Textures/W&I/Weapons/Musket/musket-Sheet (2).png" id="2_m5fgp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t3pck"]
+load_path = "res://.godot/imported/musket-Sheet.png-f5441fd39c4b80abb55fc74439948614.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3pck"]
+atlas = SubResource("CompressedTexture2D_t3pck")
+region = Rect2(0, 0, 73, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp856"]
+atlas = ExtResource("2_m5fgp")
+region = Rect2(0, 0, 73, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rieje"]
+atlas = ExtResource("2_m5fgp")
+region = Rect2(73, 0, 73, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbuqg"]
+atlas = ExtResource("2_m5fgp")
+region = Rect2(146, 0, 73, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsqqs"]
+atlas = ExtResource("2_m5fgp")
+region = Rect2(219, 0, 73, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r2kgq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3pck")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp856")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rieje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbuqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsqqs")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 7.0
+}]
+
+[node name="Musket" type="Node2D" unique_id=1347345612 node_paths=PackedStringArray("animator", "timer")]
+script = ExtResource("1_dg0te")
+center_distance = -25.0
+animator = NodePath("AnimatedSprite2D")
+timer = NodePath("Timer")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2126196909]
+position = Vector2(-25, 0)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_r2kgq")
+animation = &"shoot"
+autoplay = "idle"
+frame = 3
+frame_progress = 1.0
+
+[node name="StartBulletPos" type="Marker2D" parent="AnimatedSprite2D" unique_id=1596829501]
+position = Vector2(30, -0.9999987)
+rotation = 1.5707964
+
+[node name="Timer" type="Timer" parent="." unique_id=2032676877]

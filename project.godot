@@ -17,8 +17,13 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerProperties="*uid://cj2nrqgsbslc"
 WeaponsProperties="*uid://ce0x4nigatmr2"
+PlayerProperties="*uid://cj2nrqgsbslc"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
 
 [global_group]
 

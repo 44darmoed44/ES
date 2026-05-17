@@ -19,7 +19,7 @@ func update_center_distance():
 @export var level: int
 @export var hit_damage: int
 
-var entered_enemies: Array
+@export var entered_enemies: Array
 
 
 func _ready() -> void:

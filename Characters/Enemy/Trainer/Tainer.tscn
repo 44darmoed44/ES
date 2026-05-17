@@ -42,7 +42,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Tainer" type="CharacterBody2D" unique_id=840604647 node_paths=PackedStringArray("orientation_node", "attack_hitbox", "animator") groups=["enemy"]]
+[node name="Tainer" type="CharacterBody2D" unique_id=840604647 node_paths=PackedStringArray("orientation_node", "attack_hitbox", "animator")]
 script = ExtResource("1_0hkei")
 orientation_node = NodePath("Node2D")
 attack_hitbox = NodePath("Area2D")

@@ -15,11 +15,12 @@ signal get_damage(damage: float)
 @export var is_attacking := false 
 @export var hp = 10
 
-@onready var xp_orb = preload("res://Characters/XPOrbs/xp_orb.tscn").instantiate()
+@onready var xp_orb_inst = preload("res://Characters/XPOrbs/xp_orb.tscn")
 
 var speed = 100
 
 func _ready() -> void:
+	add_to_group("enemy")
 	collision_layer = 2
 	motion_mode = MOTION_MODE_FLOATING
 	player = get_tree().get_first_node_in_group("player")
@@ -44,11 +45,16 @@ func movement_controller(delta: float) -> void:
 
 
 func _on_get_damage(damage: float) -> void:
+	print(damage)
 	velocity = Vector2.ZERO
 	is_damage = true
-	animator.play("get_damage")
+	animator.modulate = "#ff5b49"
+	animator.pause()
+	await get_tree().create_timer(.1).timeout
+	animator.modulate = Color.WHITE
 	hp -= damage
 	if hp <= 0:
+		var xp_orb = xp_orb_inst.instantiate()
 		var a = randi_range(1, 100)
 		var spawn = false
 		if a <= 65: 
@@ -64,6 +70,8 @@ func _on_get_damage(damage: float) -> void:
 			xp_orb.global_position = global_position
 			get_tree().current_scene.add_child(xp_orb)
 		queue_free()
+	is_damage = false
+	animator.play()
 
 
 func update_animation() -> void:
@@ -73,13 +81,9 @@ func update_animation() -> void:
 		orientation_node.scale.x = -1
 	if velocity.length() != 0:
 		animator.play("walk")
-	if velocity.length() == 0:
-		animator.play("idle")
 
 
-func _on_animation_finished() -> void:
-	if animator.animation == "get_damage":
-		is_damage = false
+func _on_animation_finished() -> void:		
 	if animator.animation == "attack":
 		await get_tree().create_timer(1).timeout
 		if is_attacking: 
