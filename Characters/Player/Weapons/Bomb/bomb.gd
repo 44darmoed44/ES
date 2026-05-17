@@ -43,6 +43,8 @@ func _on_upgrade_level() -> void:
 
 	timer.wait_time = attack_time
 
+	PlayerProperties.weapons["bomb"] = level
+
 
 func _on_attack_zone_area_exited(area: Area2D) -> void:
 	var entity = area.get_parent() 

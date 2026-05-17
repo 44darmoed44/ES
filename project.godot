@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 WeaponsProperties="*uid://ce0x4nigatmr2"
 PlayerProperties="*uid://cj2nrqgsbslc"
+UiData="*uid://6iwirfxbsrww"
 
 [display]
 

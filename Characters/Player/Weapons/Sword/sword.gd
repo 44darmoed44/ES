@@ -28,6 +28,7 @@ func _on_upgrade_level() -> void:
 		var sword = WeaponsProperties.weapons["sword"].instantiate()
 		sword.num = WeaponsProperties.swords_count
 		WeaponsProperties.swords_count += 1
+		PlayerProperties.weapons["sword"] += 1
 		get_parent().add_child(sword)
 		sword.rotation_degrees = self.rotation_degrees + 45
 		

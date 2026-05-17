@@ -35,7 +35,10 @@ func _on_timer_timeout():
 func _on_upgrade_level() -> void:
 	level += 1
 	if level > WeaponsProperties.bow_prop["max_level"]:
+		level = WeaponsProperties.bow_prop["max_level"]
 		return
+	else:
+		PlayerProperties.weapons["bow"] += 1
 	attack_time = WeaponsProperties.bow_prop[level]["as"]
 	hit_damage = WeaponsProperties.bow_prop[level]["dmg"]
 
@@ -46,3 +49,5 @@ func _on_upgrade_level() -> void:
 			var bow = bow_isnt.instantiate()
 			WeaponsProperties.bows_count += 1
 			get_parent().add_child(bow)
+
+	

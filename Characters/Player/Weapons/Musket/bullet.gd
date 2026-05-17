@@ -2,6 +2,7 @@ class_name Bullet
 extends Node2D
 
 @onready var bullet_inst = preload("res://Characters/Player/Weapons/Musket/bullet.tscn")
+@onready var sprite = $Sprite2D
 
 var bullet_dmg: int
 var shrapnel_num = 1
@@ -23,6 +24,7 @@ func _ready() -> void:
 
 
 func _process(delta) -> void:
+	sprite.rotation += 10 * delta
 	if is_shrapnel:    
 		if t < 1.0:
 			t += delta / duration
@@ -38,7 +40,7 @@ func _process(delta) -> void:
 
 
 func create_bullets() -> void:
-	var angle_dist = 360/shrapnel_num
+	var angle_dist = 360.0/shrapnel_num
 	for i in range(shrapnel_num):
 		var bullet = bullet_inst.instantiate()
 		get_tree().current_scene.call_deferred("add_child", bullet)

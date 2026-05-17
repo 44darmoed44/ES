@@ -51,6 +51,8 @@ func _on_upgrade_level() -> void:
 
 	timer.wait_time = attack_time
 
+	PlayerProperties.weapons["musket"] = level
+
 
 func _on_animation_finished():
 	if animator.animation == "shoot":

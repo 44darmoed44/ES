@@ -140,8 +140,7 @@ libraries/ = SubResource("AnimationLibrary_ktiog")
 autoplay = &"default"
 
 [node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=1281560736]
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -149,32 +148,4 @@ grow_vertical = 2
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=792009207]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Button" type="Button" parent="VBoxContainer/MarginContainer" unique_id=808764550]
-custom_minimum_size = Vector2(250, 300)
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=78813276]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="SwordBTN" type="Button" parent="VBoxContainer/MarginContainer2" unique_id=497902743]
-custom_minimum_size = Vector2(250, 300)
-layout_mode = 2
-text = "меч"
-
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=712989397]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Button" type="Button" parent="VBoxContainer/MarginContainer3" unique_id=981703031]
-custom_minimum_size = Vector2(250, 300)
-layout_mode = 2
-
-[connection signal="pressed" from="VBoxContainer/MarginContainer2/SwordBTN" to="." method="_on_sword_btn_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

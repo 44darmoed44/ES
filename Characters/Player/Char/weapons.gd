@@ -4,7 +4,6 @@ extends Node2D
 
 func _ready() -> void:
 	update_weapon_list()
-	update_bows()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -18,6 +17,7 @@ func _process(delta: float) -> void:
 
 
 func update_weapon_list():
+	wlist.clear()
 	for child in get_children():
 		wlist.append(child)
 
@@ -25,8 +25,9 @@ func update_weapon_list():
 func update_bows():
 	var bows: Array
 	var num = WeaponsProperties.bows_count
-	var angle_dist = 360 / num
-	for bow in get_children():
-		bows.append(bow)
+	var angle_dist = 360.0 / num
+	for el in get_children():
+		if el is Bow:
+			bows.append(el)
 	for i in range(num):
 		bows[i].rotation_degrees = 0 + i*angle_dist

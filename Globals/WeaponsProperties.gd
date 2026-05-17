@@ -1,10 +1,28 @@
 extends Node
 
-var swords_count = 1
-var bows_count = 3
+var swords_count = 0
+var bows_count = 0
 
 var weapons = {
-	"sword" : preload("res://Characters/Player/Weapons/Sword/sword.tscn")
+	"sword" : preload("res://Characters/Player/Weapons/Sword/sword.tscn"),
+	"bow" : preload("res://Characters/Player/Weapons/Bow/bow.tscn"),
+	"bomb" : preload("res://Characters/Player/Weapons/Bomb/bomb.tscn"),
+	"musket" : preload("res://Characters/Player/Weapons/Musket/musket.tscn")
+}
+
+var wtypes = {
+	"sword" : preload("res://Characters/Player/Weapons/Sword/sword.gd"),
+	"bomb" : preload("res://Characters/Player/Weapons/Bomb/bomb.gd"),
+	"bow" : preload("res://Characters/Player/Weapons/Bow/bow.gd"),
+	"musket" : preload("res://Characters/Player/Weapons/Musket/musket.gd")
+}
+
+
+var max_levels = {
+	"sword" : 8,
+	"bow" : 9,
+	"bomb" : 3,
+	"musket" : 3
 }
 
 var sword_prop = {
